@@ -1699,6 +1699,9 @@ static void mac80211_hwsim_beacon_tx(void *arg, u8 *mac,
 				rcu_dereference(vif->chanctx_conf)->def.chan);
 	}
 
+	printk(KERN_DEBUG
+			       "mac80211_hwsim: sending beacon\n");
+
 	if (vif->csa_active && ieee80211_csa_is_complete(vif))
 		ieee80211_csa_finish(vif);
 }
